@@ -19,6 +19,11 @@ jobs:
       - run: |
           echo ::add-matcher::.github/eslint.json
           yarn run eslint src test --format=compact
-      - run: yarn test
+      - name: Run tests
+        uses: koenhagen/measure-energy-action@v0.30
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          run: yarn test
+          count: 900
       - run: yarn prepublishOnly
       - run: yarn docs:build
