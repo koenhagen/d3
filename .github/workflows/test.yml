@@ -22,6 +22,6 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           run: yarn test
-          count: 30
+          count: 900
       - run: yarn prepublishOnly
       - run: yarn docs:build
